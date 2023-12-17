@@ -73,7 +73,7 @@ void MazeGenerator::GenerateMaze(int mazeSize)
 void MazeGenerator::ExtendWall(int x, int y)
 {
 	// 伸ばすことができる方向(1マス先が通路で2マス先まで範囲内)
-	// 2マス先が壁で自分自身の場合、伸ばせない
+	// 2マス先が壁で自分自身の場合伸ばせない
 	Array<Direction> directions;
 	if (cellArray[x][ y - 1] == Path && !IsCurrentWall(x, y - 2))
 		directions.push_back(Up);
