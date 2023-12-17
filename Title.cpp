@@ -24,12 +24,12 @@ void Title::update()
 	{
 		auto& data = getData();
 		//自動生成デバック
-		//MazeGenerator mazeGenerator;
-		//mazeGenerator.GenerateMaze(data.gridNum);
-		//mazeGenerator.DebugPrint();
+		MazeGenerator mazeGenerator;
+		mazeGenerator.GenerateMaze(data.gridNum);
+		mazeGenerator.DebugPrint();
 
 		//CSVデータから迷路データを書き出す
-		ReadMazeData(U"example/csv/SampleMaze.csv");
+		//ReadMazeData(U"example/csv/SampleMaze.csv");
 	}
 	else if (readMazeDataButton.leftClicked())
 	{
@@ -115,7 +115,6 @@ void Title::ReadMazeData(FilePath filepath)
 				int32 blockheight = ParseOr<int32>(csv[row][column], -1);
 				if (blockheight < 0)
 				{
-					//読み込み失敗したことを通知し，ファイル選択画面に戻る
 					isReadError = true;
 				}
 				else

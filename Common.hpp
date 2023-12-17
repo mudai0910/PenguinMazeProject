@@ -19,10 +19,10 @@ struct GameData
 	//Array<int32> highScores = { 50, 40, 30, 20, 10 };
 
 	//マスの数
-	int gridNum = 10;
+	int gridNum = 11;
 
 	//迷路データ
-	int32 mazeData[10][10];
+	int32 mazeData[11][11];
 
 	//プレイモードかクラフトモードか
 	bool isPlayMode;

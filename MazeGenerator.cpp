@@ -17,11 +17,11 @@ void MazeGenerator::initialize()
 	//StartCells = new List<Cell>();
 	//CurrentWallCells = new Stack<Cell>();
 }
-
+//ランダムな迷路ルートを生成
 void MazeGenerator::GenerateMaze(int mazeSize)
 {
-	//迷路のサイズを取得(ステージマスの数*2+1)
-	size = mazeSize * 2 + 1;
+	//迷路のサイズを取得
+	size = mazeSize;
 	// 迷路情報をセット
 	cellArray.resize(size, size, 0);
 
@@ -145,15 +145,32 @@ bool MazeGenerator::IsCurrentWall(int x, int y)
 {
 	return currentWallCells.contains(Point(x, y));
 }
-//高さを含む迷路データを作成
+//ブロックの高さを含む迷路データを作成
 void MazeGenerator::SetMazeData(int mazeSize)
 {
 	mazeArray.resize(mazeSize, mazeSize, 0);
 	//★スタートとゴールの位置と高さをセット
+	for (int y = 0; y < cellArray.width(); y++)
+	{
+		for (int x = 0; x < cellArray.height(); x++)
+		{
+			//迷路の壁か通路かによって高さを設定
+			if (cellArray[x][y] == Wall)
+			{
+				//0～3のランダムな高さにする
+				mazeArray[x][y] = Random(0, 3);
+			}
+			else
+			{
+				//隣の通路マスとの高さの差が1以内
+				mazeArray[x][y];
+			}
+		}
 
+	}
 
-	
 	//★壁をまたぐ通路は2マス以上離す
+
 
 	//★隣り合う通路は1マス以内にする
 

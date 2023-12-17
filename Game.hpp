@@ -18,7 +18,7 @@ public:
 private:
 
 	//盤面のマスの数
-	const int gridNum=10;
+	const int gridNum=12;
 	//ブロック高さの最大
 	static constexpr int32 MaxHeight = 5;
 
