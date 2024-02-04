@@ -5,7 +5,7 @@ Siv3Dゲームジャム(https://siv3d.github.io/ja-jp/event/gamejam/)
 にて14日間で作成した3D迷路ゲームです
 
 
-https://github.com/mudai0910/COLOVENTURE/assets/96822472/66380dfd-7291-49c2-b338-9ae5f3944ed9
+https://github.com/mudai0910/PenguinMazeProject/assets/96822472/341bd23a-7fa8-42ff-8c72-ec3cc6ebed0e
 
 
 
