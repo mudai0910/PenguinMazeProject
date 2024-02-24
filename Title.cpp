@@ -11,11 +11,11 @@ void Title::initialize()
 void Title::update()
 {
 	//ボタンの挙動
-	m_rankingTransition.update(readMazeDataButton.mouseOver());
-	m_exitTransition.update(createMazeButton.mouseOver());
+	m_readMazeTransition.update(readMazeButton.mouseOver());
+	m_criateMazeTransition.update(createMazeButton.mouseOver());
 	m_startTransition.update(sampleMazeButton.mouseOver());
 
-	if (readMazeDataButton.mouseOver() || createMazeButton.mouseOver()|| sampleMazeButton.mouseOver())
+	if (readMazeButton.mouseOver() || createMazeButton.mouseOver()|| sampleMazeButton.mouseOver())
 	{
 		Cursor::RequestStyle(CursorStyle::Hand);
 	}
@@ -24,14 +24,14 @@ void Title::update()
 	{
 		auto& data = getData();
 		//自動生成デバック
-		MazeGenerator mazeGenerator;
-		mazeGenerator.GenerateMaze(data.gridNum);
-		mazeGenerator.DebugPrint();
+		//MazeGenerator mazeGenerator;
+		//mazeGenerator.GenerateMaze(data.gridNum);
+		//mazeGenerator.DebugPrint();
 
 		//CSVデータから迷路データを書き出す
-		//ReadMazeData(U"example/csv/SampleMaze.csv");
+		ReadMazeData(U"example/csv/SampleMaze.csv");
 	}
-	else if (readMazeDataButton.leftClicked())
+	else if (readMazeButton.leftClicked())
 	{
 		// ダイアログを表示
 		Optional<FilePath> path = Dialog::OpenFile({ FileFilter::CSV() }, FileSystem::FullPath(U"example/MazeDataFiles/"), U"迷路のCSVファイルを選択してください");
@@ -69,11 +69,11 @@ void Title::draw() const
 	FontAsset(U"TitleFont")(U"ペンギンめいず")
 		.drawAt(TextStyle::OutlineShadow(0.2, ColorF{ 0.4, 0.6, 0.8 }, Vec2{ 3, 3 }, ColorF{ 0.0, 0.5 }), 100, Vec2{ 400, 100 });
 
-	readMazeDataButton.draw(ColorF{ 1.0, m_rankingTransition.value() }).drawFrame(2);
-	createMazeButton.draw(ColorF{ 1.0, m_exitTransition.value() }).drawFrame(2);
+	readMazeButton.draw(ColorF{ 1.0, m_readMazeTransition.value() }).drawFrame(2);
+	createMazeButton.draw(ColorF{ 1.0, m_criateMazeTransition.value() }).drawFrame(2);
 	sampleMazeButton.draw(ColorF{ 1.0, m_startTransition.value() }).drawFrame(2);
 
-	FontAsset(U"Menu")(U"めいろをえらぶ").drawAt(readMazeDataButton.center(), ColorF{ 0.25 });
+	FontAsset(U"Menu")(U"めいろをえらぶ").drawAt(readMazeButton.center(), ColorF{ 0.25 });
 	FontAsset(U"Menu")(U"めいろをつくる").drawAt(createMazeButton.center(), ColorF{ 0.25 });
 	FontAsset(U"Menu")(U"おためしめいろ").drawAt(sampleMazeButton.center(), ColorF{ 0.25 });
 }

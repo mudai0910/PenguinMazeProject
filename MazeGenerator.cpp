@@ -21,7 +21,7 @@ void MazeGenerator::initialize()
 void MazeGenerator::GenerateMaze(int mazeSize)
 {
 	//迷路のサイズを取得
-	size = mazeSize;
+	size = mazeSize+3;
 	// 迷路情報をセット
 	cellArray.resize(size, size, 0);
 
@@ -150,20 +150,25 @@ void MazeGenerator::SetMazeData(int mazeSize)
 {
 	mazeArray.resize(mazeSize, mazeSize, 0);
 	//★スタートとゴールの位置と高さをセット
-	for (int y = 0; y < cellArray.width(); y++)
+
+
+	//各マスのブロックの高さを設定
+	for (int y = 0; y < mazeArray.height(); y++)
 	{
-		for (int x = 0; x < cellArray.height(); x++)
+		for (int x = 0; x < mazeArray.width(); x++)
 		{
-			//迷路の壁か通路かによって高さを設定
-			if (cellArray[x][y] == Wall)
+			//迷路の壁か通路かによって高さを設定(cellArrayの最初、最後、最後から2番目の行および列要素は外周のためスキップする)
+			if (cellArray[x+1][y+1] == Wall) //壁
 			{
 				//0～3のランダムな高さにする
 				mazeArray[x][y] = Random(0, 3);
 			}
 			else
 			{
-				//隣の通路マスとの高さの差が1以内
-				mazeArray[x][y];
+				//★隣の通路マスとの高さの差が1以内
+				if(cellArray[x][y + 1]!=Wall);
+				if(cellArray[x + 1][y] != Wall);
+
 			}
 		}
 

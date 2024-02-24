@@ -18,12 +18,12 @@ public:
 private:
 
 	//盤面のマスの数
-	const int gridNum=12;
+	const int gridNum=10;
 	//ブロック高さの最大
 	static constexpr int32 MaxHeight = 5;
 
 	//各マスに配置されているブロックの高さを表す二次元配列
-	int32 h[10][10] ;
+	int32 h[10][10];
 
 	//現在積みあがっているブロックの数を返す
 	int32 getHeight(Point point) const
