@@ -58,8 +58,8 @@ void Title::update()
 			}
 		}
 		data.isPlayMode = false;
-		// ゲームシーンへ
-		changeScene(State::Game);
+		// エディタシーンへ
+		changeScene(State::Editor);
 	}
 }
 void Title::draw() const
@@ -138,7 +138,3 @@ void Title::ReadMazeData(FilePath filepath)
 		System::MessageBoxOK(U"読み込みに失敗しました。");
 	}
 }
-//void Title::GenerateMaze(int* mazeData)
-//{
-//
-//}

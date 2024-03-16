@@ -1,6 +1,7 @@
 ﻿# include "Common.hpp"
 # include "Title.hpp"
 # include "Game.hpp"
+# include "Editor.hpp"
 # include "Clear.hpp"
 
 void Main()
@@ -18,6 +19,7 @@ void Main()
 	App manager;
 	manager.add<Title>(State::Title);
 	manager.add<Game>(State::Game);
+	manager.add<Editor>(State::Editor);
 	manager.add<Clear>(State::Clear);
 
 	// ゲームシーンから開始したい場合はこのコメントを外す

@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CameraController.cpp" />
+    <ClCompile Include="Editor.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Clear.cpp" />
@@ -322,6 +323,7 @@
   <ItemGroup>
     <ClInclude Include="CameraController.hpp" />
     <ClInclude Include="Common.hpp" />
+    <ClInclude Include="Editor.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Clear.hpp" />
     <ClInclude Include="MazeGenerator.hpp" />

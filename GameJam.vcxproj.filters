@@ -159,6 +159,9 @@
     <ClCompile Include="MazeGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Editor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -808,6 +811,9 @@
     </ClInclude>
     <ClInclude Include="MazeGenerator.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Editor.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

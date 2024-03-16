@@ -20,31 +20,26 @@ private:
 	//盤面のマスの数
 	const int gridNum=10;
 	//ブロック高さの最大
-	static constexpr int32 MaxHeight = 5;
+	static constexpr int32 MAXHEIGHT = 5;
 
 	//各マスに配置されているブロックの高さを表す二次元配列
-	int32 h[10][10];
+	int32 heightArray[10][10];
 
 	//現在積みあがっているブロックの数を返す
-	int32 getHeight(Point point) const
+	int32 GetHeight(Point point) const
 	{
 		//配列の要素を超えている場合
 		if (point.x<0 || point.x>gridNum || point.y<0 || point.y>gridNum)return -1;
 		//ブロックが配置されていたら
-		return h[point.x][point.y];
-	}
-	//指定のマスにブロックを追加するOR削除する
-	void addBlock(Point point, int blockNum)
-	{
-		h[point.x][point.y] += blockNum;
+		return heightArray[point.x][point.y];
 	}
 
 	// 背景色 (3D 用の色は .removeSRGBCurve() で sRGB カーブを除去）
 	const ColorF backgroundColor = ColorF{ 0.4, 0.6, 0.8 }.removeSRGBCurve();
 	//ボードの色
-	const ColorF BoardColor = ColorF{ 0.7, 0.9, 0.9 }.removeSRGBCurve();
+	const ColorF boardColor = ColorF{ 0.7, 0.9, 0.9 }.removeSRGBCurve();
 	//ボードのラインの色
-	const ColorF LineColor = ColorF{ 0.1, 0.2, 0.2 };
+	const ColorF lineColor = ColorF{ 0.1, 0.2, 0.2 };
 	//海の色
 	const ColorF seaColor = ColorF{ 0, 0.2, 1,0.8 };
 	//ブロックの色
@@ -52,7 +47,7 @@ private:
 	//固定ブロックの色
 	const ColorF fixedBlockColor = ColorF{ 0.7, 0.9, 0.9, 0.8 };
 	//ハイライトの色
-	const ColorF moveGridColor = ColorF{ 0.8, 0.8, 0.2, 0.8 };
+	const ColorF highlightColor = ColorF{ 0.8, 0.8, 0.2, 0.8 };
 	// 3D シーンを描く、マルチサンプリング対応レンダーテクスチャ
 	const MSRenderTexture renderTexture{ Scene::Size(), TextureFormat::R8G8B8A8_Unorm_SRGB, HasDepth::Yes };
 	// 盤用の 3D メッシュ
@@ -86,23 +81,13 @@ private:
 	Point upperGrid{ -1,-1 };
 	Point lowerGrid{ -1,-1 };
 
-	//プレイモードか否か
-	bool isPlayMode;
-	//ブロック削除モードか否か
-	bool isDeleteMode;
 	//ペンギンの向き
 	int penguinDir;
 
 	//UI関連
-	Rect addModeButton{ 1050,180, 220, 45 }; //追加モードに切り替え
-	Rect deleteModeButton{ 1050,260, 220, 45 }; //削除モードに切り替え
-	Rect decideButton{ 1050,420, 220, 45 }; //迷路を作成するボタン
 	Rect restartButton{ 1050,500, 220, 45 }; //やりなおすボタン
 	Rect exitButton{ 1050,580, 220, 45 }; //タイトルに戻るボタン
 
-	Transition addModeTransition{ 0.4s, 0.2s };
-	Transition deleteModeTransition{ 0.4s, 0.2s };
-	Transition decideTransition{ 0.4s, 0.2s };
 	Transition restartTransition{ 0.4s, 0.2s };
 	Transition exitTransition{ 0.4s, 0.2s };
 
