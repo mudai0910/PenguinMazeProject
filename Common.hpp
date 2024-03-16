@@ -6,6 +6,7 @@ enum class State
 {
 	Title,
 	Game,
+	Editor,
 	Clear,
 };
 
@@ -13,7 +14,7 @@ enum class State
 struct GameData
 {
 	// 直前のゲームのスコア
-	Optional<int32> lastGameScore;
+	//Optional<int32> lastGameScore;
 
 	// ハイスコア
 	//Array<int32> highScores = { 50, 40, 30, 20, 10 };
@@ -22,7 +23,7 @@ struct GameData
 	int gridNum = 10;
 
 	//迷路データ
-	int32 mazeData[10][10];
+	int mazeData[10][10];
 
 	//プレイモードかクラフトモードか
 	bool isPlayMode;
